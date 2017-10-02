@@ -13,4 +13,5 @@ script:
    - ng build --prod
 
 deploy:
+   skip_cleanup: true
    provider: azure_web_apps
