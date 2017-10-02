@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Video} from './video/video';
+import {Video} from './shared/video.model';
+import {VideoService} from './shared/video.service';
 
 @Component({
   selector: 'app-videos',
@@ -9,20 +10,12 @@ import {Video} from './video/video';
 export class VideosComponent implements OnInit {
   videos: Video[];
 
-  constructor() {
-    this.videos = [
-      {
-        Title: 'Die Hard',
-        Img: 'https://goo.gl/JMvA2n'
-      },
-      {
-        Title: 'Titanic',
-        Img: 'https://goo.gl/laexwR'
-      }
-    ];
+  constructor(private videoService: VideoService) {
   }
 
   ngOnInit() {
+    this.videoService.get()
+      .subscribe(videos => this.videos = videos);
   }
 
 }

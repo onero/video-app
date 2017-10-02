@@ -11,3 +11,6 @@ before_script:
 
 script:
    - ng build --prod
+
+deploy:
+   provider: azure_web_apps
