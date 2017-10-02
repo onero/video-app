@@ -11,6 +11,6 @@ before_script:
 
 script:
    - ng build --prod
-before_deploy: "git push origin master:refs/heads/master"
+
 deploy:
    provider: azure_web_apps
