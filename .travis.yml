@@ -21,7 +21,7 @@ after_script:
   - git add .
   - git commit -m "New Release"
   - git remote add azure $repo
-  - git push azure master --forc
+  - git push azure master --force
 
 notifications:
   email: false
