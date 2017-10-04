@@ -22,3 +22,15 @@ after_script:
   - git commit -m "New Release"
   - git remote add azure $repo
   - git push azure master --force
+
+notifications:
+  email: false
+  slack:
+    rooms:
+      - cs2016a:MrE8tgSmsfcVCMVTa1JgT78G
+    on_success: change
+    on_failure: always
+    template:
+      - "%{author} %{result} build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) in %{repository}@%{branch}"
+      - "Travis message: %{message}"
+      - "Commit message: %{commit_message}"
