@@ -11,3 +11,11 @@ before_script:
 
 script:
    - ng build --prod
+
+after_script:
+  - cd dist
+  - git init
+  - git add .
+  - git commit -m "New Release"
+  - git remote add azure $repo
+  - git push azure master
