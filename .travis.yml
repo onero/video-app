@@ -1,6 +1,9 @@
 language: node_js
 node_js:
    - 8
+cache:
+  directories:
+    - node_modules
 
 branches:
    only:
@@ -18,4 +21,4 @@ after_script:
   - git add .
   - git commit -m "New Release"
   - git remote add azure $repo
-  - git push azure master
+  - git push azure master --force
