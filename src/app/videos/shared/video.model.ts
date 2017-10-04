@@ -1,5 +1,4 @@
 export class Video {
-  Id?: number;
-  Title: string;
-  Img?: string;
+  id?: number;
+  title: string;
 }

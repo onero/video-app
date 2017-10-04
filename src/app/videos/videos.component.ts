@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Video} from './shared/video.model';
 import {VideoService} from './shared/video.service';
 

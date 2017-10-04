@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
@@ -12,11 +12,13 @@ export class VideoService {
   constructor(private http: HttpClient) { }
 
   get(): Observable<Video[]> {
-    return this.http.get<Video[]>(url);
+    return this.http
+      .get<Video[]>(url);
   }
 
   getById(id: number): Observable<Video> {
-    return this.http.get(url + '/' + id);
+    return this.http
+      .get<Video>(url + '/' + id);
   }
 
 }
