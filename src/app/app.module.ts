@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     VideosComponent,
     VideoComponent,
     PageNotFoundComponent,
-    VideoDetailComponent
+    VideoDetailComponent,
     NavbarComponent
   ],
   imports: [
