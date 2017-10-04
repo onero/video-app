@@ -21,13 +21,13 @@ after_script:
   - git add .
   - git commit -m "New Release"
   - git remote add azure $repo
-  - git push azure master --force
+  - git push azure master --forc
 
 notifications:
   email: false
   slack:
     rooms:
-      - cs2016a:MrE8tgSmsfcVCMVTa1JgT78G
+      - $D4FF
     on_success: change
     on_failure: always
     template:
