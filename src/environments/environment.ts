@@ -5,6 +5,5 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://alh-easv-dk-videorestapi.azurewebsites.net/api'
-/*apiURL: 'http://localhost:5000/api'*/
+  apiURL: 'http://localhost:5000/api'
 };

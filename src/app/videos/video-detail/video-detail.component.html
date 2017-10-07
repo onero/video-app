@@ -1,4 +1,52 @@
-<div>
-  <h1>Title: {{video?.title}}</h1>
-  <img src="http://lorempixel.com/400/200/nature">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+      <button type="button" class="btn btn-success"
+              routerLink='/videos'
+              routerLinkActive="active">Back</button>
+      <hr>
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <h4 class="card-header">Video Details</h4>
+        <div class="card-body row">
+          <div class="col-md-4">
+            <img class="img" src="http://via.placeholder.com/250x250">
+          </div>
+          <div class="col-md-8">
+            <dl class="row">
+              <dt class="col-md-2">ID:</dt>
+              <dt class="col-md-10">{{video?.id}}</dt>
+            </dl>
+            <dl class="row">
+              <dt class="col-md-2">Title:</dt>
+              <dt class="col-md-10">{{video?.title}}</dt>
+            </dl>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent">
+          <div class="float-right" *ngIf="!confirmDelete">
+            <button class="btn btn-outline-danger"
+                    (click)="promptDelete()">
+              <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+            </button>
+            <button class="btn btn-outline-warning">
+              <i class="fa fa-pencil" aria-hidden="true"></i> Update
+            </button>
+          </div>
+          <div class="float-right" *ngIf="confirmDelete" >
+            <button class="btn btn-outline-success"
+                    (click)="deleteVideo()">
+              <i class="fa fa-trash-o" aria-hidden="true"></i> Confirm
+            </button>
+            <button class="btn btn-outline-info"
+                    (click)="abortDelete()">
+              <i class="fa fa-times" aria-hidden="true"></i> Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

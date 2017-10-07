@@ -1,3 +1,33 @@
-<h1>All the videos</h1>
-<app-video
-  *ngFor="let video of videos" [video]="video"></app-video>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+      <h2>Videos</h2>
+      <hr>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="list-group">
+      <a (click)="details(video)" *ngFor="let video of videos" class="list-group-item list-group-item-action">
+        <img class="rounded float-left img" src="http://via.placeholder.com/64x64" alt="">
+        <h5>ID: {{video.id}}</h5>
+        <h5>Title: {{video.title}}</h5>
+        <div *ngIf="!videoToDelete || videoToDelete.id != video.id" class="pull-right">
+          <button class="btn btn-outline-danger"
+                  (click)="promptDelete(video, $event)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          <button class="btn btn-outline-warning">
+            <i class="fa fa-pencil" aria-hidden="true"></i></button>
+        </div>
+        <div *ngIf="videoToDelete && videoToDelete.id == video.id" class="pull-right">
+          <button class="btn btn-outline-success"
+                  (click)="delete($event)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Confirm</button>
+          <button class="btn btn-outline-info"
+                  (click)="abortDelete($event)">
+            <i class="fa fa-pencil" aria-hidden="true"></i> Cancel</button>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

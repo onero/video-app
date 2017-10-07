@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Video} from '../shared/video.model';
 import {VideoService} from '../shared/video.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -11,10 +11,10 @@ import 'rxjs/add/operator/switchMap';
 })
 export class VideoDetailComponent implements OnInit {
   video: Video;
-
+  confirmDelete = false;
   constructor(private videoService: VideoService,
-              private route: ActivatedRoute
-  ) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap
@@ -22,4 +22,16 @@ export class VideoDetailComponent implements OnInit {
       .subscribe(video => this.video = video);
   }
 
+  promptDelete() {
+    this.confirmDelete = true;
+  }
+
+  abortDelete() {
+    this.confirmDelete = false;
+  }
+
+  deleteVideo() {
+    this.videoService.delete(this.video.id)
+      .subscribe(video => this.router.navigateByUrl('/videos'));
+  }
 }
