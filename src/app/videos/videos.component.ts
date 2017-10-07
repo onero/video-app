@@ -42,4 +42,7 @@ export class VideosComponent implements OnInit {
     $event.stopPropagation();
   }
 
+  createVideo() {
+    this.route.navigateByUrl('/videos/create');
+  }
 }

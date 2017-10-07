@@ -24,4 +24,8 @@ export class VideoService {
   delete(id: number): Observable<Video> {
     return this.http.delete(url + '/' + id);
   }
+
+  create(video: Video): Observable<Video> {
+    return this.http.post(url, video);
+  }
 }

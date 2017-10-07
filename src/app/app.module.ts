@@ -10,6 +10,8 @@ import {PageNotFoundComponent} from './shared/page-not-found/page-not-found.comp
 import {VideoDetailComponent} from './videos/video-detail/video-detail.component';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {VideoCreateComponent} from './videos/video-create/video-create.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -19,13 +21,15 @@ const appRoutes: Routes = [
   },
   {
     path: 'videos',
-    component: VideosComponent,
-    data: { title: 'Videos'}
+    component: VideosComponent
+  },
+  {
+    path: 'videos/create',
+    component: VideoCreateComponent
   },
   {
     path: 'video/:id',
-    component: VideoDetailComponent,
-    data: { title: 'Video Detail'}
+    component: VideoDetailComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -35,10 +39,12 @@ const appRoutes: Routes = [
     VideosComponent,
     PageNotFoundComponent,
     VideoDetailComponent,
-    NavbarComponent
+    NavbarComponent,
+    VideoCreateComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     NgbModule.forRoot()
