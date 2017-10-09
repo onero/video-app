@@ -2,10 +2,14 @@
   <div class="row">
     <div class="col-md-12">
       <hr>
-      <button class="btn btn-outline-success"
-      routerLink="">Back</button>
-      <h4>Create Video</h4>
+      <h4 align="center">Create Video</h4>
+      <ngb-alert align="center"
+        (close)="closeAlert()"
+        *ngIf="displayVideoCreatedAlert"
+        type="success">Video Created!</ngb-alert>
       <hr>
+      <button class="btn btn-outline-success"
+              routerLink="">Back</button>
     </div>
     <div class="col-md-12">
       <form (ngSubmit)="saveVideo()"
@@ -36,10 +40,6 @@
           </button>
         </div>
       </form>
-      <ngb-alert
-      (click)="closeAlert()"
-      *ngIf="displayVideoCreatedAlert"
-      type="success">Video Created!</ngb-alert>
     </div>
   </div>
 </div>
