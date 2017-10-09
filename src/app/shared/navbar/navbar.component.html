@@ -1,3 +1,18 @@
-<nav class="navbar navbar-dark bg-primary">
-  <button (click)="home()" type="button" class="btn btn-primary">Home</button>
+<nav class="navbar navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="">
+    <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    VideoApp
+  </a>
+  <div class="collapse navbar-collapse" id="navbar">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link"
+         routerLink=""
+      routerLinkActive="active">Home</a>
+      <a class="nav-item nav-link"
+         routerLink="videos/create"
+         routerLinkActive="active">Create</a>
+    </div>
+  </div>
+  <!--<button (click)="home()" type="button" class="btn btn-primary">Home</button>-->
 </nav>
+

@@ -10,6 +10,7 @@ import {VideoService} from '../shared/video.service';
 })
 export class VideoCreateComponent implements OnInit {
   videoGroup: FormGroup;
+  displayVideoCreatedAlert= false;
   constructor(private fb: FormBuilder,
               private videoService: VideoService) {
     this.videoGroup = this.fb.group({
@@ -29,6 +30,23 @@ export class VideoCreateComponent implements OnInit {
     this.videoService.create(newVideo)
       .subscribe(video => {
         this.videoGroup.reset();
+        this.displayVideoCreatedAlert = true;
+        setTimeout(() => {
+          this.displayVideoCreatedAlert = false;
+        }, 3000);
       });
+  }
+
+  isInvalid(controlName: string) {
+    const control = this.videoGroup.controls[controlName];
+    return control.invalid && (control.touched || control.dirty);
+  }
+  isValid(controlName: string) {
+    const control = this.videoGroup.controls[controlName];
+    return !control.invalid && (control.touched || control.dirty);
+  }
+
+  closeAlert() {
+    this.displayVideoCreatedAlert = false;
   }
 }
