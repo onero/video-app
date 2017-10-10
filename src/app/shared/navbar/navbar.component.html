@@ -6,13 +6,13 @@
   <div class="collapse navbar-collapse" id="navbar">
     <div class="navbar-nav">
       <a class="nav-item nav-link"
-         routerLink=""
+         routerLink="videos"
+         [routerLinkActiveOptions]="{ exact: true }"
       routerLinkActive="active">Home</a>
       <a class="nav-item nav-link"
          routerLink="videos/create"
          routerLinkActive="active">Create</a>
     </div>
   </div>
-  <!--<button (click)="home()" type="button" class="btn btn-primary">Home</button>-->
 </nav>
 
