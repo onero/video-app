@@ -12,6 +12,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {VideoCreateComponent} from './videos/video-create/video-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {appRoutes} from './app.routes';
+import {GenresComponent} from './genres/genres.component';
+import {GenreService} from './genres/shared/genre.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {appRoutes} from './app.routes';
     PageNotFoundComponent,
     VideoDetailComponent,
     NavbarComponent,
-    VideoCreateComponent
+    VideoCreateComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import {appRoutes} from './app.routes';
     appRoutes,
     NgbModule.forRoot()
   ],
-  providers: [VideoService],
+  providers: [VideoService, GenreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

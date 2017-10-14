@@ -26,6 +26,6 @@ export class VideoService {
   }
 
   create(video: Video): Observable<Video> {
-    return this.http.post(url, video);
+    return this.http.post<Video>(url, video);
   }
 }

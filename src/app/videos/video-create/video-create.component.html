@@ -11,6 +11,7 @@
       <button class="btn btn-outline-success"
               routerLink="">Back</button>
     </div>
+    <hr>
     <div class="col-md-12">
       <form (ngSubmit)="saveVideo()"
             [formGroup]="videoGroup" novalidate>
@@ -31,6 +32,11 @@
                 Title must be at least 2 characters long.
               </div>
             </div>
+            <label>
+              Genres:
+              <app-genres
+              [genres]="genresIn"></app-genres>
+            </label>
           </label>
           <button
             [disabled]="videoGroup.invalid"

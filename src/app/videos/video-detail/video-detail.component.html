@@ -23,6 +23,12 @@
               <dt class="col-md-2">Title:</dt>
               <dt class="col-md-10">{{video?.title}}</dt>
             </dl>
+            <dl class="row">
+              <dt class="col-md-2">Genres:</dt>
+              <ul class="list-unstyled">
+                <li *ngFor="let genre of video?.genres">{{genre.name}}</li>
+              </ul>
+            </dl>
           </div>
         </div>
         <div class="card-footer bg-transparent">

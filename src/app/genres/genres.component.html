@@ -1,0 +1,28 @@
+<div *ngIf="!genres || genres.length == 0">No Genres</div>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let genre of genres; let i = index">
+    <i class="fa fa-film" aria-hidden="true"></i>
+    {{genre.name}}
+    <div class="pull-right button-group">
+      <button class="btn btn-outline-danger"
+              (click)="deleteGenre(i, $event)">
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </button>
+    </div>
+  </li>
+</ul>
+<hr>
+<form [formGroup]="genreGroup" (submit)="saveGenre()">
+  <div class="form-group">
+    <label class="center-block">
+      Name:
+      <input class="form-control"
+      formControlName="name"
+      placeholder="Action">
+    </label>
+    <button class="btn btn-outline-success"
+            type="submit">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+  </div>
+</form>
